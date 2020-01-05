@@ -4,7 +4,7 @@
 
 <h2>Why am I Using PenPal</h2>
 <% current_user.feeling_preferences.each do |pref| %>
-  <%= pref.feeling %>
+  <%= pref.feeling.capitalize %>
 <% end %>
 
 <h2>Activity Preferences</h2>
@@ -22,7 +22,7 @@
 
 <h2>Music Preferences</h2>
 <% current_user.music_preferences.each do |pref| %>
-  <%= pref.genre %>
+  <%= pref.genre.capitalize %>
 <% end %>
 
 <h2>Time Preferences</h2>

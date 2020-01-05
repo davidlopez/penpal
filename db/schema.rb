@@ -37,11 +37,15 @@ ActiveRecord::Schema.define(version: 2020_01_05_221826) do
   create_table "daily_feelings", force: :cascade do |t|
     t.string "feeling"
     t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_daily_feelings_on_user_id"
   end
 
   create_table "dbt_quotes", force: :cascade do |t|
     t.text "quote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|
