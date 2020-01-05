@@ -1,5 +1,2 @@
 class ActivityPreferencesController < ApplicationController
-
-
-
-end 
+end

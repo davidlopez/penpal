@@ -1,5 +1,4 @@
 <center>
-
   <% if completed? %>
     <section>
       <%= render partial: 'partials/feedback' %>
@@ -11,7 +10,7 @@
     <%= resource_facade.quote %>
   </section>
 
-  <% resource_facade.suggestion != 'journal' %>
+  <% if resource_facade.suggestion != 'journal' %>
     <h3>Journal about how you're feeling, then click save.</h3>
       <section id='journal-entry'>
       <%= form_for @entry do |f| %>
@@ -23,5 +22,5 @@
         </p>
       <% end %>
       </section>
-
+    <% end %>
 </center>

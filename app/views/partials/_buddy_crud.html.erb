@@ -1,16 +1,16 @@
 <center>
   <%= form_tag path, method: method do %>
     <%= label_tag :first_name %>
-    <%= text_field_tag :first_name %>
+    <%= text_field_tag :first_name, buddy ? buddy.first_name : nil %>
 
     <%= label_tag :last_name %>
-    <%= text_field_tag :last_name %>
+    <%= text_field_tag :last_name, buddy ? buddy.last_name : nil %>
 
     <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= text_field_tag :email, buddy ? buddy.email : nil %>
 
     <%= label_tag :phone_number %>
-    <%= text_field_tag :phone_number %>
+    <%= text_field_tag :phone_number, buddy ? buddy.phone_number : nil %>
 
     <%= submit_tag button %>
   <% end %>

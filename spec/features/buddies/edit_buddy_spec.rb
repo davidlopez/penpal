@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'As a registered user' do
   it 'it can edit a support buddy' do
-    user = create(:user)
+    user = create(:user, survey?: true)
     stub_user(user)
-    buddy_1 = user.buddies.create(first_name: 'Greg', last_name: 'Mitchell', email: 'george_michael@mail.com', phone_number: '303-555-2424' )
+    buddy_1 = user.buddies.create(first_name: 'Greg', last_name: 'Mitchell', email: 'george_michael@mail.com', phone_number: '3035552424' )
 
     visit profile_path
 
@@ -19,7 +19,7 @@ describe 'As a registered user' do
     fill_in :first_name, with: 'Gregory'
     fill_in :last_name, with: 'Moose'
     fill_in :email, with: 'gmoo@gmail.com'
-    fill_in :phone_number, with: '303-555-3131'
+    fill_in :phone_number, with: '3035553131'
     click_on 'Update Buddy'
 
     expect(current_path).to eq('/buddies')
@@ -32,14 +32,14 @@ describe 'As a registered user' do
     within "#buddy-#{buddy_1.id}" do
       expect(page).to have_content('Gregory Moose')
       expect(page).to have_content('gmoo@gmail.com')
-      expect(page).to have_content('303-555-3131')
+      expect(page).to have_content('3035553131')
     end
   end
 
   it 'cannot edit support buddy without filling out all fields' do
-    user = create(:user)
+    user = create(:user, survey?: true)
     stub_user(user)
-    buddy_1 = user.buddies.create(first_name: 'Greg', last_name: 'Mitchell', email: 'george_michael@mail.com', phone_number: '303-555-2424' )
+    buddy_1 = user.buddies.create(first_name: 'Greg', last_name: 'Mitchell', email: 'george_michael@mail.com', phone_number: '3035552424' )
 
     visit profile_path
 
@@ -54,9 +54,9 @@ describe 'As a registered user' do
     fill_in :first_name, with: 'Gregory'
     fill_in :last_name, with: ''
     fill_in :email, with: ''
-    fill_in :phone_number, with: '303-555-3131'
+    fill_in :phone_number, with: '3035553131'
     click_on 'Update Buddy'
 
-    expect(page).to have_content("Last name can't be blank and Email can't be blank")
+    expect(page).to have_content("Last name can't be blank, Email can't be blank, and Email is invalid\nHome\nEdit Buddy\nFirst name Last name Email Phone number")
   end
 end

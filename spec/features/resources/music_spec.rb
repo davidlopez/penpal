@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user can receive a music resource" do
   it "displays song url" do
-    user = create(:user)
+    user = create(:user, survey?: true)
     stub_user(user)
 
     allow_any_instance_of(ResourceFacade).to receive(:suggestion).and_return("music")

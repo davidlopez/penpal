@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user can receive a journal entry resource" do
   it "displays a form to enter text" do
-    user = create(:user)
+    user = create(:user, survey?: true)
     stub_user(user)
 
     allow_any_instance_of(ResourceFacade).to receive(:suggestion).and_return("journal")

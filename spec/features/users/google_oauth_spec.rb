@@ -15,7 +15,7 @@ describe 'As a newly registered user' do
   end
 
   it 'A registered user can login' do
-    user = create(:user, email: 'hfinn@mail.com')
+    user = create(:user, email: 'hfinn@mail.com', survey?: true)
     stub_omniauth
 
     visit '/'

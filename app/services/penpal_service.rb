@@ -6,14 +6,14 @@ class PenpalService
 
   private
 
-  def conn
-    Faraday.new(ENV['PENPAL_URL']) do |f|
-      f.adapter Faraday.default_adapter
+    def conn
+      Faraday.new(ENV['PENPAL_URL']) do |f|
+        f.adapter Faraday.default_adapter
+      end
     end
-  end
 
-  def get_json
-    response = conn.get
-    JSON.parse(response.body)
-  end
+    def get_json
+      response = conn.get
+      JSON.parse(response.body)
+    end
 end

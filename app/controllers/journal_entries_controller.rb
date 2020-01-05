@@ -1,5 +1,4 @@
 class JournalEntriesController < ApplicationController
-
   def create
     resource_facade.new_entry.update(journal_params)
     if resource_facade.new_entry.save
@@ -9,7 +8,7 @@ class JournalEntriesController < ApplicationController
 
   private
 
-  def journal_params
-    params.require(:journal_entry).permit(:entry)
-  end
+    def journal_params
+      params.require(:journal_entry).permit(:entry)
+    end
 end

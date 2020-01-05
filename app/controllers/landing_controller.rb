@@ -1,4 +1,4 @@
 class LandingController < ApplicationController
-  def index
-  end
+  before_action :logged_in?, :survey_not_completed?
+  def index; end
 end

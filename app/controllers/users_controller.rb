@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+  before_action :logged_in?, :survey_not_completed?, except: :create
+
   def create
     user = User.find_by(email: email)
     user ? found_user_redirect(user) : setup_new_user
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @user = current_user
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.destroy(current_user.id)
+    current_user.destroy
     session.clear
     flash[:notice] = 'Account deleted.'
     redirect_to root_path
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:first_name, :last_name)
     end
 
     def found_user_redirect(user)

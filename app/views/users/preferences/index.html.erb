@@ -1,48 +1,34 @@
+<%= render partial: 'partials/nav' %>
+
 <h1>Preferences</h1>
 
 <h2>Why am I Using PenPal</h2>
-<% @user.feeling_preferences.each do |pref| %>
+<% current_user.feeling_preferences.each do |pref| %>
   <%= pref.feeling %>
 <% end %>
-<!-- < %= link_to 'Edit Feeling Preferences',  %>  -->
-
-<!-- <h2>What Resources I Find Helpful</h2> -->
-<!-- < % @user.feeling_categories.each do |pref| %> -->
-  <!-- < %= pref.category %> -->
-<!-- < % end %> -->
-<!-- < %= link_to 'Edit Category Preferences',  %>  -->
-
-
 
 <h2>Activity Preferences</h2>
-<% @user.activity_preferences.each do |pref| %>
+<% current_user.activity_preferences.each do |pref| %>
   <%= pref.description.capitalize %>
 <% end %>
-<!-- < %= link_to 'Edit Activity Preferences' %> -->
 
 <h2>Media Preferences</h2>
-  <p>Dogs: <%= @user.media_preference[:dogs] %> </p>
-  <p>Cats: <%= @user.media_preference[:cats] %> </p>
-  <p>Animals: <%= @user.media_preference[:animals] %> </p>
-  <p>Baby Humans: <%= @user.media_preference[:babies] %> </p>
-  <p>Celestial: <%= @user.media_preference[:celestial] %> </p>
-  <p>Landscapes: <%= @user.media_preference[:landscapes] %> </p>
-<!-- < %= link_to 'Edit Media Preferences' %> -->
-
-
+<p>Dogs: <%= current_user.media_preference[:dogs] %> </p>
+<p>Cats: <%= current_user.media_preference[:cats] %> </p>
+<p>Animals: <%= current_user.media_preference[:animals] %> </p>
+<p>Baby Humans: <%= current_user.media_preference[:babies] %> </p>
+<p>Celestial: <%= current_user.media_preference[:celestial] %> </p>
+<p>Landscapes: <%= current_user.media_preference[:landscapes] %> </p>
 
 <h2>Music Preferences</h2>
-<% @user.music_preferences.each do |pref| %>
+<% current_user.music_preferences.each do |pref| %>
   <%= pref.genre %>
 <% end %>
-<!-- < %= link_to 'Edit Music Preferences' %> -->
 
 <h2>Time Preferences</h2>
-  <p>Morning: <%= @user.time_preference[:morning] %></p>
-  <p>MidDay: <%= @user.time_preference[:midday] %></p>
-  <p>Before Bed: <%= @user.time_preference[:before_bed] %></p>
-  <p>Random: <%= @user.time_preference[:random] %></p>
-<!-- < %= link_to 'Edit Time Preference' %> -->
-
+<p>Morning: <%= current_user.time_preference[:morning] %></p>
+<p>MidDay: <%= current_user.time_preference[:midday] %></p>
+<p>Before Bed: <%= current_user.time_preference[:before_bed] %></p>
+<p>Random: <%= current_user.time_preference[:random] %></p>
 
 <%= link_to 'Edit Preferences', '/preferences/edit' %>

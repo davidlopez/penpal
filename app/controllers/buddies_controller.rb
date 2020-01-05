@@ -1,4 +1,6 @@
 class BuddiesController < ApplicationController
+  before_action :logged_in?, :survey_not_completed?
+  
   def index; end
 
   def new; end
@@ -31,7 +33,7 @@ class BuddiesController < ApplicationController
   end
 
   def destroy
-    Buddy.destroy(params[:id])
+    current_user.buddies.destroy(params[:id])
 
     flash[:success] = 'Buddy Deleted'
     redirect_to '/buddies'

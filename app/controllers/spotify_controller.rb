@@ -1,11 +1,10 @@
 class SpotifyController < ApplicationController
 
   def create
-    user = current_user
-    user.update({
+    current_user.update({
       spotify_token: params['code']
       })
-
+    flash[:success] = 'Connected to Spotify!'
     redirect_to '/profile'
   end
 end

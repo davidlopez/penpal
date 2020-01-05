@@ -1,5 +1,2 @@
 class MediaPreferencesController < ApplicationController
-
-
-
-end 
+end

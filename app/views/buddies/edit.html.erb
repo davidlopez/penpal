@@ -1,3 +1,5 @@
+<%= render partial: 'partials/nav' %>
+
 <h1>Edit Buddy</h1>
 
-<%= render partial: 'partials/buddy_crud', locals: { path: "/buddies/#{@buddy.id}", method: :patch, button: 'Update Buddy'} %>
+<%= render partial: 'partials/buddy_crud', locals: { buddy: @buddy, path: "/buddies/#{@buddy.id}", method: :patch, button: 'Update Buddy' } %>

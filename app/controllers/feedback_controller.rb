@@ -1,6 +1,4 @@
 class FeedbackController < ApplicationController
-
-  def create
-    
-  end
+  before_action :logged_in?, :survey_not_completed?
+  def create; end
 end

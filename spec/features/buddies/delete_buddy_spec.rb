@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'As a registered user' do
   it 'it can edit a support buddy' do
-    user = create(:user)
+    user = create(:user, survey?: true)
     stub_user(user)
-    buddy_1 = user.buddies.create(first_name: 'Greg', last_name: 'Mitchell', email: 'george_michael@mail.com', phone_number: '303-555-2424' )
+    buddy_1 = user.buddies.create(first_name: 'Greg', last_name: 'Mitchell', email: 'george_michael@mail.com', phone_number: '3035552424' )
 
     visit profile_path
 
@@ -20,7 +20,7 @@ describe 'As a registered user' do
     user.reload
 
     visit '/buddies'
-    
+
     expect(page).to_not have_css("#buddy-#{buddy_1.id}")
   end
 end

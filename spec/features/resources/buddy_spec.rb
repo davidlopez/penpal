@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user can receive a buddy resource" do
   it "shows buddy info" do
-    user = create(:user)
+    user = create(:user, survey?: true)
     bddy = create(:buddy, user_id: user.id)
     stub_user(user)
 

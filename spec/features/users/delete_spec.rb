@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As a registered user' do
   it 'can delete account' do
-    user = create(:user)
+    user = create(:user, survey?: true)
     stub_user(user)
 
     visit landing_path
