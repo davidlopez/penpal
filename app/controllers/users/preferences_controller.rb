@@ -8,6 +8,7 @@ class Users::PreferencesController < ApplicationController
   end
 
   def update
+    destroy
     update_feelings
 
     update_music_preferences
@@ -18,21 +19,28 @@ class Users::PreferencesController < ApplicationController
 
     update_media_preferences
 
+
     flash[:success] = 'Preferences updated'
     redirect_to '/preferences'
   end
 
   private
 
+  def destroy
+    current_user.feeling_preferences.destroy_all
+    current_user.music_preferences.destroy_all
+    current_user.activity_preferences.destroy_all
+    current_user.time_preference.destroy
+    current_user.media_preference.destroy
+  end
+
   def update_feelings
-    current_user.feeling_preferences.destroy
     feeling_params.values.each do |feel|
       current_user.feeling_preferences.create(feeling: feel)
     end
   end
 
   def update_music_preferences
-    current_user.music_preferences.destroy
     music_params.values.each do |gen|
       if gen != ''
         current_user.music_preferences.create(genre: gen)
@@ -41,7 +49,6 @@ class Users::PreferencesController < ApplicationController
   end
 
   def update_activity_preferences
-    current_user.activity_preferences.destroy
     activity_params.values.each do |activity|
       if activity != ''
         current_user.activity_preferences.create(description: activity)
@@ -53,7 +60,6 @@ class Users::PreferencesController < ApplicationController
   end
 
   def update_time_preferences
-    current_user.time_preference.destroy
     time = TimePreference.create(user_id: current_user.id)
     time_params.values.each do |pref|
       time.update_attribute(pref, true)
@@ -61,7 +67,6 @@ class Users::PreferencesController < ApplicationController
   end
 
   def update_media_preferences
-    current_user.media_preference.destroy
     media_preference = MediaPreference.create(user_id: current_user.id)
     media_params.values.each do |media|
       media_preference.update_attribute(media, true)

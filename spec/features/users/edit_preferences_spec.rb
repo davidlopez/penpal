@@ -40,7 +40,7 @@ describe 'user can edit their preferences' do
     expect(page).to have_content('Preferences updated')
 
     user.reload
-    
+
     feelings = user.feeling_preferences.map do |pref|
       pref.feeling
     end
