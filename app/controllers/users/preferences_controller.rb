@@ -78,4 +78,5 @@ class Users::PreferencesController < ApplicationController
     def media_params
       params.require('media').permit!
     end
+  end 
 end
