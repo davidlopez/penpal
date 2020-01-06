@@ -1,7 +1,7 @@
 <%= form_for @user, url: path, method: method do  |f| %>
   <h3>I want Penpal to help me because often I feel: </h3>
   <%= f.label "feelings[sad]", "Sad" %>
-  <%= f.check_box :feeling_preferences, { :multiple => true }, "sad", false  %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "sad", false %>
   <%= f.label "feelings[down]", "Down" %>
   <%= f.check_box :feeling_preferences, { :multiple => true }, "down", false %>
   <%= f.label "feelings[alone]", "Alone" %>
@@ -41,8 +41,8 @@
   <%= f.label "music[folk/indie]", "Folk/Indie" %>
   <%= f.check_box :music_preferences, { :multiple => true }, "folkindie", false %>
   <%= f.label "music[custom]", "Other" %>
-  <%= f.text_field :music_preferences, { :multiple => true, :value => '' } %>
-  <%= f.text_field :music_preferences, { :multiple => true, :value => '' } %>
+  <%= f.text_field :music_preferences, { :multiple => true, :name => 'music_1', :value => '' } %>
+  <%= f.text_field :music_preferences, { :multiple => true, :name => 'music_2', :value => '' } %>
 
   <h3>I love looking at: </h3>
   <%= f.label "media[dogs]", "Dogs" %>
@@ -60,9 +60,9 @@
 
   <h3>Other activities I enjoy include: </h3>
   <%= f.label "activities" %>
-  <%= f.text_area :activity_preferences, { :multiple => true, :value => '' } %>
-  <%= f.text_area :activity_preferences, { :multiple => true, :value => '' } %>
-  <%= f.text_area :activity_preferences, { :multiple => true, :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :name => 'activity_1', :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :name => 'activity_2', :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :name => 'activity_3', :value => '' } %>
 
   <%= f.submit button %>
 <% end %>

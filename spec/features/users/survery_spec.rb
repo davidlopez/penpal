@@ -7,21 +7,29 @@ describe 'User can fill out the survey' do
 
     visit '/survey'
 
-    check 'Sad'
-    check 'Down'
-    check 'Before bed'
-    check 'Listen to my favorite music'
-    check 'Perform an activity I enjoy'
-    check 'Folk/Indie'
-    check 'Dogs'
-    check 'Celestial'
-    fill_in 'activity[activity_1]', with: 'Swimming'
-    fill_in 'activity[activity_2]', with: 'Coloring'
+
+    find(:css, "#user_feeling_preferences_sad").set(true)
+    find(:css, "#user_feeling_preferences_down").set(true)
+
+    find(:css, "#user_time_preference_before_bed").set(true)
+
+    find(:css, "#user_activity_preferences_music").set(true)
+    find(:css, "#user_activity_preferences_activity").set(true)
+
+    find(:css, "#user_music_preferences_folkindie").set(true)
+
+    find(:css, "#user_media_preference_dogs").set(true)
+    find(:css, "#user_media_preference_celestial").set(true)
+
+    fill_in 'activity_1', with: 'Swimming'
+    fill_in 'activity_2', with: 'Coloring'
 
     click_on 'Submit'
 
     expect(current_path).to eq('/landing')
     expect(page).to have_content('Preferences saved')
+    user.reload
+
 
     feelings = user.feeling_preferences.map do |pref|
       pref.feeling
@@ -29,7 +37,6 @@ describe 'User can fill out the survey' do
 
     expect(feelings).to include('sad')
     expect(feelings).to include('down')
-
     expect(user.media_preference[:dogs]).to eq(true)
     expect(user.media_preference[:celestial]).to eq(true)
 
