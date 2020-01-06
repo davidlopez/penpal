@@ -1,7 +1,7 @@
 class ActivityPreferencesController < ApplicationController
 
   def edit
-    @activity_preference = ActivityPreference.find(params[:id])
+    @activity_preference = current_user.activity_preferences.find(params[:id])
   end
 
   def update

@@ -4,17 +4,17 @@
 
 <h3>I love looking at: </h3>
 <%= f.label "media[dogs]", "Dogs" %>
-<%= f.check_box :media_preference, { :multiple => true }, @media_preference.dogs, false %>
+<%= f.check_box :media_preference, checked: @media_preference.dogs ? true : false %>
 <%= f.label "media[cats]", "Cats" %>
-<%= f.check_box :media_preference, { :multiple => true }, @media_preference.cats, false %>
+<%= f.check_box :media_preference, checked: @media_preference.cats ? true : false %>
 <%= f.label "media[animals]", "All animals" %>
-<%= f.check_box :media_preference, { :multiple => true }, @media_preference.animals, false %>
+<%= f.check_box :media_preference, checked: @media_preference.animals ? true : false %>
 <%= f.label "media[babies]", "Baby humans" %>
-<%= f.check_box :media_preference, { :multiple => true }, @media_preference.babies, false %>
+<%= f.check_box :media_preference, checked: @media_preference.babies ? true : false %>
 <%= f.label "media[landscapes]", "Landscapes" %>
-<%= f.check_box :media_preference, { :multiple => true }, @media_preference.landscapes, false %>
+<%= f.check_box :media_preference, checked: @media_preference.landscapes ? true : false %>
 <%= f.label "media[celestial]", "Celestial" %>
-<%= f.check_box :media_preference, { :multiple => true }, @media_preference.celestial, false %>
+<%= f.check_box :media_preference, checked: @media_preference.celestial ? true : false %>
 
 <%= f.submit 'Next' %>
 <% end %>

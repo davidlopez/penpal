@@ -1,7 +1,7 @@
 class MusicPreferencesController < ApplicationController
 
   def edit
-    @music_preference = MusicPreference.find(params[:id])
+    @music_preference = current_user.music_preferences.find(params[:id])
   end
 
   def update

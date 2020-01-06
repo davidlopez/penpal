@@ -6,7 +6,7 @@ class FeelingPreferencesController < ApplicationController
   def create; end
 
   def edit
-    @feeling_preference = FeelingPreference.find(params[:id])
+    @feeling_preference = current_user.feeling_preferences.find(params[:id])
   end
 
   def update
