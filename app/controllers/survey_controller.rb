@@ -1,6 +1,8 @@
 class SurveyController < ApplicationController
   before_action :completed?, :logged_in?
-  def index; end
+  def index
+    @user = current_user
+  end
 
   def create
     create_feelings; create_music_preferences; create_activity_preferences
@@ -52,27 +54,24 @@ class SurveyController < ApplicationController
     end
 
     def music_params
-      params.require('music').permit!
+      params.require(:user).require(:music_preferences)
     end
 
     def feeling_params
-      params.require('feelings').permit!
+      binding.pry
+      params.require(:user).require(:feeling_preferences)
     end
 
     def activity_params
-      params.require('activity').permit!
-    end
-
-    def resource_params
-      params.require('resources').permit!
+      params.require(:user).require(:activity_preferences)
     end
 
     def time_params
-      params.require('time').permit!
+      params.require(:user).require(:time_preference)
     end
 
     def media_params
-      params.require('media').permit!
+      params.require(:user).require(:media_preference)
     end
 
     def completed?

@@ -2,7 +2,9 @@ class Users::PreferencesController < ApplicationController
   before_action :logged_in?
   def index; end
 
-  def edit; end
+  def edit
+    @user = current_user
+  end
 
   def update
     destroy

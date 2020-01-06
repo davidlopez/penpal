@@ -1,69 +1,68 @@
-<%= form_tag path, method: method do %>
+<%= form_for @user, url: path, method: method do  |f| %>
   <h3>I want Penpal to help me because often I feel: </h3>
-  <%= label_tag "feelings[sad]", "Sad" %>
-  <%= check_box_tag "feelings[sad]", "sad" %>
-  <%= label_tag "feelings[down]", "Down" %>
-  <%= check_box_tag "feelings[down]", "down" %>
-  <%= label_tag "feelings[alone]", "Alone" %>
-  <%= check_box_tag "feelings[alone]", "alone" %>
-  <%= label_tag "feelings[unmotivated]", "Unmotivated" %>
-  <%= check_box_tag "feelings[unmotivated]", "unmotivated" %>
-  <%= label_tag "feelings[mad]", "Mad" %>
-  <%= check_box_tag "feelings[mad]", "mad" %>
+  <%= f.label "feelings[sad]", "Sad" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "sad", false  %>
+  <%= f.label "feelings[down]", "Down" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "down", false %>
+  <%= f.label "feelings[alone]", "Alone" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "alone", false %>
+  <%= f.label "feelings[unmotivated]", "Unmotivated" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "unmotivated", false %>
+  <%= f.label "feelings[mad]", "Mad" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "mad", false %>
 
   <h3>I notice that I feel this way more often: </h3>
-  <%= label_tag "time[morning]", "In the morning" %>
-  <%= check_box_tag "time[morning]", "morning" %>
-  <%= label_tag "time[mid-day]", "Mid-day" %>
-  <%= check_box_tag "time[mid-day]", "midday" %>
-  <%= label_tag "time[before-bed]", "Before bed" %>
-  <%= check_box_tag "time[before-bed]", "before_bed" %>
-  <%= label_tag "time[random]", "Random times" %>
-  <%= check_box_tag "time[random]", "random" %>
+  <%= f.label "time[morning]", "In the morning" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "morning", false %>
+  <%= f.label "time[mid-day]", "Mid-day" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "midday", false %>
+  <%= f.label "time[before-bed]", "Before bed" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "before_bed", false %>
+  <%= f.label "time[random]", "Random times" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "random", false %>
 
   <h3>When I feel this way, it can be helpful to: </h3>
-  <%= label_tag "resources[music]", "Listen to my favorite music" %>
-  <%= check_box_tag "resources[music]", "music" %>
-  <%= label_tag "resources[activity]", "Perform an activity I enjoy" %>
-  <%= check_box_tag "resources[activity]", "activity" %>
-  <%= label_tag "resources[buddy]", "Talk to a friend or family member" %>
-  <%= check_box_tag "resources[buddy]", "buddy" %>
-  <%= label_tag "resources[media]", "See my favorite kind of photos" %>
-  <%= check_box_tag "resources[media]", "media" %>
-  <%= label_tag "resources[journal]", "Journal" %>
-  <%= check_box_tag "resources[journal]", "journal" %>
+  <%= f.label "resources[music]", "Listen to my favorite music" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "music", false %>
+  <%= f.label "resources[activity]", "Perform an activity I enjoy" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "activity", false %>
+  <%= f.label "resources[buddy]", "Talk to a friend or family member" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "buddy", false %>
+  <%= f.label "resources[media]", "See my favorite kind of photos" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "media", false %>
+  <%= f.label "resources[journal]", "Journal" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "journal", false %>
 
   <h3>My favorite music is: </h3>
-  <%= label_tag "music[rock]", "Rock" %>
-  <%= check_box_tag "music[rock]", "rock" %>
-  <%= label_tag "music[r&b-soul]", "R&B/Soul" %>
-  <%= check_box_tag "music[r&b-soul]", "rnbsoul" %>
-  <%= label_tag "music[folk/indie]", "Folk/Indie" %>
-  <%= check_box_tag "music[folk/indie]", "folkindie" %>
-  <%= label_tag "music[custom]", "Other" %>
-  <%= text_field_tag "music[custom]" %>
-  <%= text_field_tag "music[custom_2]" %>
+  <%= f.label "music[rock]", "Rock" %>
+  <%= f.check_box :music_preferences, { :multiple => true }, "rock", false %>
+  <%= f.label "music[r&b-soul]", "R&B/Soul" %>
+  <%= f.check_box :music_preferences, { :multiple => true }, "rnbsoul", false %>
+  <%= f.label "music[folk/indie]", "Folk/Indie" %>
+  <%= f.check_box :music_preferences, { :multiple => true }, "folkindie", false %>
+  <%= f.label "music[custom]", "Other" %>
+  <%= f.text_field :music_preferences, { :multiple => true, :value => '' } %>
+  <%= f.text_field :music_preferences, { :multiple => true, :value => '' } %>
 
   <h3>I love looking at: </h3>
-  <%= label_tag "media[dogs]", "Dogs" %>
-  <%= check_box_tag "media[dogs]", "dogs" %>
-  <%= label_tag "media[cats]", "Cats" %>
-  <%= check_box_tag "media[cats]", "cats" %>
-  <%= label_tag "media[animals]", "All animals" %>
-  <%= check_box_tag "media[animals]", "animals" %>
-  <%= label_tag "media[babies]", "Baby humans" %>
-  <%= check_box_tag "media[babies]", "babies" %>
-  <%= label_tag "media[landscapes]", "Landscapes" %>
-  <%= check_box_tag "media[landscapes]", "landscapes" %>
-  <%= label_tag "media[celestial]", "Celestial" %>
-  <%= check_box_tag "media[celestial]", "celestial" %>
+  <%= f.label "media[dogs]", "Dogs" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "dogs", false %>
+  <%= f.label "media[cats]", "Cats" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "cats", false %>
+  <%= f.label "media[animals]", "All animals" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "animals", false %>
+  <%= f.label "media[babies]", "Baby humans" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "babies", false %>
+  <%= f.label "media[landscapes]", "Landscapes" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "landscapes", false %>
+  <%= f.label "media[celestial]", "Celestial" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "celestial", false %>
 
   <h3>Other activities I enjoy include: </h3>
-  <%= label_tag "activities" %>
-  <%= text_area_tag "activity[activity_1]" %>
-  <%= text_area_tag "activity[activity_2]" %>
-  <%= text_area_tag "activity[activity_3]" %>
+  <%= f.label "activities" %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :value => '' } %>
 
-
-  <%= submit_tag button %>
+  <%= f.submit button %>
 <% end %>
