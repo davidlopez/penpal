@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/landing', to: 'landing#index'
+  post '/daily_feelings', to: "daily_feeling#create"
   get '/survey', to: 'survey#index'
   get '/survey/feelings', to: 'feeling_preferences#new'
   get '/survey/time', to: 'time_preferences#new'
