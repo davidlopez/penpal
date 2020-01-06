@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'user can edit their preferences' do
-  it 'from preferences page links to edit preferences' do
+  it 'from preferences page can edit a single feeling preference' do
     user = create(:user)
     stub_user(user)
 
