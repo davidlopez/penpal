@@ -1,0 +1,9 @@
+<h1>Edit a Music Preference</h1>
+
+<%= form_for @music_preference url: "/preferences/music/#{@music_preference.id}", method: :patch do  |f| %>
+
+  <%= f.label "Genre" %>
+  <%= f.text_area :genre %>
+
+  <%= f.submit 'Next' %>
+<% end %>

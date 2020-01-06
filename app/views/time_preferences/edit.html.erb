@@ -1,0 +1,15 @@
+<%= form_for @time_preference url: "/preferences/time/#{@time_preference.id}" method: :patch do  |f| %>
+
+  <h3>I notice that I feel this way more often: </h3>
+  <%= f.label "time[morning]", "In the morning" %>
+  <%= f.check_box :time_preference, { :multiple => true }, @time_preference.morning, false %>
+  <%= f.label "time[mid-day]", "Mid-day" %>
+  <%= f.check_box :time_preference, { :multiple => true }, @time_preference.midday, false %>
+  <%= f.label "time[before-bed]", "Before bed" %>
+  <%= f.check_box :time_preference, { :multiple => true }, @time_preference.before_bed, false %>
+  <%= f.label "time[random]", "Random times" %>
+  <%= f.check_box :time_preference, { :multiple => true }, @time_preference.random, false %>
+
+  <%= f.submit 'Submit' %>
+
+<% end %>

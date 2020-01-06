@@ -1,0 +1,15 @@
+<%= form_for @time_preference url: '/survey/time' method: :post do  |f| %>
+
+  <h3>I notice that I feel this way more often: </h3>
+  <%= f.label "time[morning]", "In the morning" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "morning", false %>
+  <%= f.label "time[mid-day]", "Mid-day" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "midday", false %>
+  <%= f.label "time[before-bed]", "Before bed" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "before_bed", false %>
+  <%= f.label "time[random]", "Random times" %>
+  <%= f.check_box :time_preference, { :multiple => true }, "random", false %>
+
+  <%= f.submit 'Submit' %>
+
+<% end %>

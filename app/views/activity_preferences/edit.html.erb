@@ -1,0 +1,9 @@
+<h1>Edit an Activity Preference</h1>
+
+<%= form_for @activity_preference url: "/preferences/activities/#{@activity_preference.id}", method: :patch do  |f| %>
+
+  <%= f.label "Activity" %>
+  <%= f.text_area :description %>
+
+  <%= f.submit 'Next' %>
+<% end %>

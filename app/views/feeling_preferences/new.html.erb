@@ -1,0 +1,16 @@
+<%= form_for @feelng_preferences url: '/survey/feelings;', method: :post do  |f| %>
+
+  <h3>I want Penpal to help me because often I feel: </h3>
+  <%= f.label "feelings[sad]", "Sad" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "sad", false %>
+  <%= f.label "feelings[down]", "Down" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "down", false %>
+  <%= f.label "feelings[alone]", "Alone" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "alone", false %>
+  <%= f.label "feelings[unmotivated]", "Unmotivated" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "unmotivated", false %>
+  <%= f.label "feelings[mad]", "Mad" %>
+  <%= f.check_box :feeling_preferences, { :multiple => true }, "mad", false %>
+
+  <%= f.submit 'Next' %>
+<% end %>

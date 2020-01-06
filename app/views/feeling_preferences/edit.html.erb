@@ -1,0 +1,9 @@
+<h1>Edit a Feeling Preference</h1>
+
+<%= form_for @feeling_preference url: "/preferences/feelings/#{@feeling_preference.id}", method: :patch do  |f| %>
+
+  <%= f.label "Feeling" %>
+  <%= f.text_area :feeling %>
+
+  <%= f.submit 'Next' %>
+<% end %>

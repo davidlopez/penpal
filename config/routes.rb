@@ -3,6 +3,26 @@ Rails.application.routes.draw do
 
   get '/landing', to: 'landing#index'
   get '/survey', to: 'survey#index'
+  get '/survey/feelings', to: 'feeling_preferences#new'
+  get '/survey/time', to: 'time_preferences#new'
+  get '/survey/activities', to: 'activity_preferences#new'
+  get '/survey/media', to: 'media_preferences#new'
+  get '/survey/music', to: 'music_preferences#new'
+
+  get '/preferences/feelings/:id/edit', to: 'feeling_preferences#edit'
+  get '/preferences/time/:id/edit', to: 'time_preferences#edit'
+  get '/preferences/activities/:id/edit', to: 'activity_preferences#edit'
+  get '/preferences/media/:id/edit', to: 'media_preferences#edit'
+  get '/preferences/music/:id/edit', to: 'music_preferences#edit'
+
+  patch '/preferences/feelings/:id', to: 'feeling_preferences#update'
+  patch '/preferences/time/:id', to: 'time_preferences#update'
+  patch '/preferences/activities/:id', to: 'activity_preferences#update'
+  patch '/preferences/media/:id', to: 'media_preferences#update'
+  patch '/preferences/music/:id', to: 'music_preferences#update'
+
+
+
   get '/boost', to: 'boost#show'
   post '/journal_entries', to: 'journal_entries#create'
 

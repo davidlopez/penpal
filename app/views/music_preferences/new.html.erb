@@ -1,0 +1,15 @@
+<%= form_for @music_preferences url: '/survey/music', method: :post do  |f| %>
+
+  <h3>My favorite music is: </h3>
+  <%= f.label "music[rock]", "Rock" %>
+  <%= f.check_box :music_preferences, { :multiple => true }, "rock", false %>
+  <%= f.label "music[r&b-soul]", "R&B/Soul" %>
+  <%= f.check_box :music_preferences, { :multiple => true }, "rnbsoul", false %>
+  <%= f.label "music[folk/indie]", "Folk/Indie" %>
+  <%= f.check_box :music_preferences, { :multiple => true }, "folkindie", false %>
+  <%= f.label "music[custom]", "Other" %>
+  <%= f.text_field :music_preferences, { :multiple => true, :name => 'music_1', :value => '' } %>
+  <%= f.text_field :music_preferences, { :multiple => true, :name => 'music_2', :value => '' } %>
+
+  <%= f.submit 'Next' %>
+<% end %>

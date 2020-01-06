@@ -1,0 +1,20 @@
+<h1>Edit Media Preference</h1>
+
+<%= form_for @media_preference url: "/preferences/media/#{@media_preference.id}", method: :patch do  |f| %>
+
+<h3>I love looking at: </h3>
+<%= f.label "media[dogs]", "Dogs" %>
+<%= f.check_box :media_preference, { :multiple => true }, @media_preference.dogs, false %>
+<%= f.label "media[cats]", "Cats" %>
+<%= f.check_box :media_preference, { :multiple => true }, @media_preference.cats, false %>
+<%= f.label "media[animals]", "All animals" %>
+<%= f.check_box :media_preference, { :multiple => true }, @media_preference.animals, false %>
+<%= f.label "media[babies]", "Baby humans" %>
+<%= f.check_box :media_preference, { :multiple => true }, @media_preference.babies, false %>
+<%= f.label "media[landscapes]", "Landscapes" %>
+<%= f.check_box :media_preference, { :multiple => true }, @media_preference.landscapes, false %>
+<%= f.label "media[celestial]", "Celestial" %>
+<%= f.check_box :media_preference, { :multiple => true }, @media_preference.celestial, false %>
+
+<%= f.submit 'Next' %>
+<% end %>

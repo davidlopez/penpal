@@ -1,0 +1,18 @@
+<%= form_for @media_preference url: '/survey/media', method: :post do  |f| %>
+
+  <h3>I love looking at: </h3>
+  <%= f.label "media[dogs]", "Dogs" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "dogs", false %>
+  <%= f.label "media[cats]", "Cats" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "cats", false %>
+  <%= f.label "media[animals]", "All animals" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "animals", false %>
+  <%= f.label "media[babies]", "Baby humans" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "babies", false %>
+  <%= f.label "media[landscapes]", "Landscapes" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "landscapes", false %>
+  <%= f.label "media[celestial]", "Celestial" %>
+  <%= f.check_box :media_preference, { :multiple => true }, "celestial", false %>
+
+  <%= f.submit 'Next' %>
+<% end %>

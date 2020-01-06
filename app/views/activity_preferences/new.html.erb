@@ -1,0 +1,23 @@
+<%= form_for @activity_preferences url: '/survey/activities', method: :post do  |f| %>
+
+  <h3>When I feel this way, it can be helpful to: </h3>
+  <%= f.label "resources[music]", "Listen to my favorite music" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "music", false %>
+  <%= f.label "resources[activity]", "Perform an activity I enjoy" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "activity", false %>
+  <%= f.label "resources[buddy]", "Talk to a friend or family member" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "buddy", false %>
+  <%= f.label "resources[media]", "See my favorite kind of photos" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "media", false %>
+  <%= f.label "resources[journal]", "Journal" %>
+  <%= f.check_box :activity_preferences, { :multiple => true }, "journal", false %>
+
+  <h3>Other activities I enjoy include: </h3>
+  <%= f.label "activities" %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :name => 'activity_1', :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :name => 'activity_2', :value => '' } %>
+  <%= f.text_area :activity_preferences, { :multiple => true, :name => 'activity_3', :value => '' } %>
+
+
+  <%= f.submit 'Next' %>
+<% end %>
