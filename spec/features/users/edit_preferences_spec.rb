@@ -7,19 +7,26 @@ describe 'user can edit their preferences' do
 
     visit '/survey'
 
-    user.feeling_preferences.create(feeling: 'sad')
-    user.feeling_preferences.create(feeling: 'Down')
-    TimePreference.create(user_id: user.id, before_bed: true)
+    find(:css, "#user_feeling_preferences_sad").set(true)
+    find(:css, "#user_feeling_preferences_down").set(true)
 
-    user.activity_preferences.create(description: 'music')
-    user.activity_preferences.create(description: 'activity')
-    user.activity_preferences.create(description: 'Swimming')
-    user.activity_preferences.create(description: 'Coloring')
+    find(:css, "#user_time_preference_before_bed").set(true)
 
-    user.music_preferences.create(genre: 'folkindie')
+    find(:css, "#user_activity_preferences_music").set(true)
+    find(:css, "#user_activity_preferences_activity").set(true)
 
-    MediaPreference.create(user_id: user.id, dogs: true, celestial: true)
+    find(:css, "#user_music_preferences_folkindie").set(true)
+
+    find(:css, "#user_media_preference_dogs").set(true)
+    find(:css, "#user_media_preference_celestial").set(true)
+
+    fill_in 'activity_1', with: 'Swimming'
+    fill_in 'activity_2', with: 'Coloring'
+
+    click_on 'Submit'
+
     user.reload
+
     visit '/preferences'
 
     click_link 'Edit Preferences'
