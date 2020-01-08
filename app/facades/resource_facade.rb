@@ -4,7 +4,7 @@ class ResourceFacade
   def initialize(user)
     @user = user
   end
-  
+
   def new_entry
     @entry ||= @user.journal_entries.new
   end
@@ -22,14 +22,22 @@ class ResourceFacade
       {
         current_feeling: @user.daily_feelings.last,
         feeling_preferences: feeling_info,
+        resource_preferences: resource_info,
         music_preferences: music_info,
-        media_preferences: media_info
+        media_preferences: media_info,
+        spotify_tokn: @user.spotify_token
       }
     end
 
     def feeling_info
       @user.feeling_preferences.map do|feeling_pref|
         feeling_pref.feeling
+      end
+    end
+
+    def resource_info
+      @user.resource_preferences.map do |pref, boolean|
+        pref if boolean
       end
     end
 

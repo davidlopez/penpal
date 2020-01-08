@@ -5,9 +5,8 @@
 <p>Name: <%= current_user.first_name %>  <%= current_user.last_name %></p>
 <p>Email: <%= current_user.email %> </p>
 
-<% if !current_user.spotify_token %>
-  <%= link_to 'Connect to Spotify', spotify_path %>
-<% end %>
+
+<%= link_to 'Connect to Spotify', spotify_path %>
 
 
 <%= link_to 'Preferences', '/preferences' %>
