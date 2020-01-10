@@ -1,0 +1,28 @@
+<center>
+  <% if survey_not_completed? %>
+    <section>
+      <%= render partial: 'partials/feedback' %>
+    </section>
+  <% end %>
+
+  <h3>Something to think about when you feel stuck...</h3>
+  <section id='dbt-quote'>
+    "<%= @quote.quote %>"
+  </section></br>
+
+  <% if session[:suggestion] != 'journal' %>
+    <h4>Journal about whatever comes up for you, then click save.</h4>
+    <p>Don't want to journal? That's okay. Just click the 'Home' button</p>
+      <section id='journal-entry'>
+      <%= form_for @entry do |f| %>
+        <p>
+          <%= f.text_area(:entry, size: '65x15') %>
+        </p>
+        <p>
+          <%= f.submit 'Save', method: :post %>
+        </p>
+      <% end %>
+      </section>
+  <% end %>
+  <%= link_to 'Home', '/landing' %>
+</center>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boost</title>
+  </head>
+
+  <center>
+    <body class='boost'>
+      <% if @completed != true %>
+        <header class='boost-header'>
+          <h3>Penpal Recommends: <%= resource_facade.suggestion.capitalize %></h3>
+        </header>
+       <% if @journal_complete == true %>
+         <p>Great journal entry!</p>
+        <% else %>
+          <main class='boost-main'>
+            <%= render partial: "partials/#{resource_facade.suggestion}", locals: {resource_facade: resource_facade} %>
+          </main>
+        <% end %>
+      <% end %>
+      <%= render partial: 'partials/spotify' %>
+
+      <p>Select whether you <%= link_to 'Completed', '/dbt', method: :get %> or
+      <%= link_to 'Opted Out', '/dbt', method: :get %> of the suggested task</p>
+
+    </body>
+  </center>
+</html>

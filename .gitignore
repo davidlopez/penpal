@@ -8,10 +8,12 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+coverage
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+dump.rdb
 
 # Ignore uploaded files in development
 /storage/*
@@ -25,3 +27,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore application configuration
+/config/application.yml
+
+dump.rdb

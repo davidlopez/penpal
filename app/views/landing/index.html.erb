@@ -1,0 +1,27 @@
+<%= render partial: 'partials/nav' %>
+
+<center>
+  <section class='daily-feeling'>
+    <h2 class='user-name'>Welcome, <%= current_user.first_name %>!</h2><br>
+      <h5>How are you feeling?</h5>
+        <%= form_for(@daily_feeling) do |f| %>
+          <div class="radio-group">
+              <%= f.radio_button :feeling, 'happy', checked: true %>
+              <%= label :daily_feeling_feeling, 'happy' %>
+              <%= f.radio_button :feeling, 'sad' %>
+              <%= label :daily_feeling_feeling, 'sad' %>
+              <%= f.radio_button :feeling, 'neutral' %>
+              <%= label :daily_feeling_feeling, 'neutral' %>
+              <%= f.radio_button :feeling, 'down' %>
+              <%= label :daily_feeling_feeling, 'down' %>
+              <%= f.radio_button :feeling, 'alone' %>
+              <%= label :daily_feeling_feeling, 'alone' %>
+              <%= f.radio_button :feeling, 'unmotivated' %>
+              <%= label :daily_feeling_feeling, 'unmotivated' %>
+              <%= f.radio_button :feeling, 'mad' %>
+              <%= label :daily_feeling_feeling, 'mad' %>
+          </div><br>
+          <%= f.submit 'Submit', class: 'feeling-button' %>
+        <% end %>
+  </section>
+</center>

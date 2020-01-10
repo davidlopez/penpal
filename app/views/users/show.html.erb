@@ -1,0 +1,15 @@
+<%= render partial: 'partials/nav' %>
+
+<center>
+  <section>
+    <h6>Profile for <%= current_user.first_name + ' ' + current_user.last_name %></h6></br>
+
+    <p>Email: <%= current_user.email %> </p>
+
+    <%= link_to 'Connect to Spotify', spotify_path %></br>
+    <%= link_to 'Preferences', '/preferences' %></br>
+    <%= link_to 'Buddies', '/buddies', method: :get %></br>
+    <%= link_to 'Edit Profile', "/users/#{current_user.id}/edit" %></br></br>
+    <%= button_to 'Delete Account', "/users/#{current_user.id}", method: :delete %>
+  </section>
+</center>

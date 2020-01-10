@@ -1,0 +1,19 @@
+language: ruby
+script:
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec
+rvm:
+- 2.5.0
+services:
+- postgresql
+before_install: gem install bundler -v 2.0.2
+before_script:
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: InPmou5XltDjxT0F2k5zEXxJOvXttJ2ZiUquaAH66EilLZmo925VvDWya2pYdUaVSm2EPzaH01cNr5hpKEAueD0yJ4/4UEFE16knvp/MUpgUSg0XYtCNwoJE8IjOhfHZJYXY1WyFKJZ8T9Qam3jSK53SoITYmjmpHx8QyfSpcuNaXWZUF5XCHzhSOi79qJDBJVoDRXhsr3y7zpiKJeKJtwvuBoGPrMzaDcvEbt0n+Nd/30j6/fWgHYHrjcNlrz6ONoZIlVJvo6yJrho3gMMNJeYcngiXzok0Aj6MwENjjiosW0qyd5ZPDXgjeg2VpZtTt9dR+9td+vuaYK7Er9tgfQxC8X+ZPK05ymtUyy1eHvrPHnlMFuFRj+GMshOGIayCbFblubWVLiQr2dY/SmJjujxMooltGaBDCEwCv3oWTFkYqFjr9tebJLDTXaN/9D3URsKeYXl/aEzfs4gR+IIooO+nV+bAmJp7jWH4bqhdszbvBY26f6ikFORGn+Hci8Hefm/+OnlDnteemOvFFIw6lrcJrQNsnpJXZfKZ627BoaZ6CMbMS8Kqlfamg7a83WtjpzLYn974rn14hu6VO2CpEuWM0ZRBW2GIkRcv7LlYIym2uQ7efPMhnk+rjlRzLAZAU+4/SbMtWVt8e1fOIuMLqv1UufBKJDuavQSuO96qCYs=
+  app: penpal-boost
+  on:
+    repo: Not-Zorro/penpal

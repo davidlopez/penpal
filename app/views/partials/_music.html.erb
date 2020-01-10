@@ -1,0 +1,6 @@
+<section id='music'>
+  <p>Penpal selected the following song to lift your spirits:</p>
+  <%= image_tag(resource_facade.resource.image,size: "300x300") %>
+  <p>Song by:   <%= resource_facade.resource.artist_name %>   </p>
+  <p><%= link_to resource_facade.resource.song_name, resource_facade.resource.url %></p>
+</section>

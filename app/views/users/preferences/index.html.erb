@@ -1,0 +1,39 @@
+<%= render partial: 'partials/nav' %>
+<center>
+  <section class='my-preferences'>
+    <h4>Preferences</h4>
+    <p>Here are the preferences you recorded</p>
+  </section></br>
+
+  <section class='preferences-answers'>
+      <h6 style="color:#4169E1;">I am using PenPal for when I feel: </h6>
+        <p><% current_user.feeling_preferences.each do |pref| %></p>
+          <p><%= pref.feeling.capitalize %></p>
+        <% end %></br>
+
+      <h6 style="color:#4169E1;">My Activity preferences are: </h6>
+        <p><% current_user.activity_preferences.each do |pref| %></p>
+          <p><%= pref.description.capitalize %></p>
+        <% end %></br>
+
+      <h6 style="color:#4169E1;">My Media preferences include: </h6>
+        <p>Dogs: <%= current_user.media_preference[:dogs] %> </p>
+        <p>Cats: <%= current_user.media_preference[:cats] %> </p>
+        <p>Animals: <%= current_user.media_preference[:animals] %> </p>
+        <p>Baby Humans: <%= current_user.media_preference[:babies] %> </p>
+        <p>Celestial: <%= current_user.media_preference[:celestial] %> </p>
+        <p>Landscapes: <%= current_user.media_preference[:landscapes] %></p></br>
+
+      <h6 style="color:#4169E1;">My Music preferences include: </h6>
+        <p><% current_user.music_preferences.each do |pref| %></p>
+          <p><%= pref.genre %></p>
+        <% end %></br>
+
+      <h6 style="color:#4169E1;">I am usually most affected by these moods in the: </h6>
+        <p>Morning: <%= current_user.time_preference[:morning] %></p>
+        <p>Mid-day: <%= current_user.time_preference[:midday] %></p>
+        <p>Before bed: <%= current_user.time_preference[:before_bed] %></p>
+        <p>Random: <%= current_user.time_preference[:random] %></p>
+</section></br>
+<%= link_to 'Edit Preferences', '/preferences/edit' %></br>
+</center>

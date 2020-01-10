@@ -11,6 +11,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -39,7 +41,15 @@ gem 'faraday'
 gem 'figaro'
 gem 'factory_bot_rails'
 gem 'faker'
-
+gem 'omniauth'
+gem 'oauth2'
+gem 'omniauth-spotify'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client'
+gem 'sidekiq', '~> 4.0.1'
+gem 'sendgrid-ruby'
+gem 'spotify-ruby'
+gem 'skylight'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,8 +61,8 @@ group :development, :test do
   gem 'awesome_print'
   gem 'webmock'
   gem 'simplecov'
-  gem 'vcr'
   gem 'webdrivers'
+  gem 'launchy'
 end
 
 group :development do

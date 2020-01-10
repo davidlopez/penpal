@@ -1,0 +1,25 @@
+<center>
+  <h2>Feedback about your activity</h2>
+
+  <%= form_tag '/feedback', method: :post do %>
+    <h3>Did you find the recommendation helpful?</h3>
+    <%= label_tag "Yes" %>
+    <%= radio_button("helpful", "y/n", true) %>
+    <%= label_tag "No"%>
+    <%= radio_button("helpful", "y/n", false) %>
+
+    <h3>Would you benefit from doing it again?</h3>
+    <%= label_tag "Yes" %>
+    <%= radio_button( "again", "y/n", true) %>
+    <%= label_tag "No"%>
+    <%= radio_button( "again", "y/n", false) %>
+
+    <h3>Did this help your mood shift?</h3>
+    <%= label_tag "Yes" %>
+    <%= radio_button( "shift", "y/n", true) %>
+    <%= label_tag "No"%>
+    <%= radio_button( "shift", "y/n", false) %>
+
+    <p><%= submit_tag 'Submit' %></p>
+  <% end %>
+</center>

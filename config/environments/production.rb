@@ -13,6 +13,8 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+   # Do not swallow errors in after_commit/after_rollback callbacks.
+   # config.active_record.raise_in_transactional_callbacks = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -90,5 +92,19 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
+  config.active_job.queue_adapter = :sidekiq
+
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "penpal-boost.herokuapp.com" }
+
+  config.action_mailer.smtp_settings = {
+     address:              'smtp.sendgrid.net',
+     port:                 '587',
+     domain:               'penpal-boost.herokuapp.com',
+     user_name:            ENV["SENDGRID_USERNAME"],
+     password:             ENV["SENDGRID_PASSWORD"],
+     authentication:       'plain',
+     enable_starttls_auto: true
+  }
 end

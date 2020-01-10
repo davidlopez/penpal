@@ -1,0 +1,7 @@
+<%= render partial: 'partials/nav' %>
+<% @entries.each do |entry| %>
+  <section class='all-entries'>
+    <h2 class='entries'><%= entry.created_at.to_date %></h2>
+    <p class='entry'><%= entry.entry %></p>
+  </section>
+<% end %>

@@ -1,0 +1,17 @@
+<%= render partial: 'partials/nav' %>
+
+<center>
+  <h3>My Support Buddies</h3>
+
+  <% current_user.buddies.each do |buddy| %>
+    <section id='buddy-<%= buddy.id %>'>
+      <h5><%= buddy.first_name + ' ' + buddy.last_name %></h5>
+      <p>Email: <%= buddy.email %></p>
+      <p>Phone: <%= buddy.phone_number %></p>
+      <%= link_to 'Edit Buddy', "/buddies/#{buddy.id}/edit" %>
+      <%= link_to 'Delete Buddy', "/buddies/#{buddy.id}", method: :delete %>
+    </section></br>
+  <% end %>
+
+  <%= button_to 'Add a Buddy', '/buddies/new', method: :get %>
+</center>

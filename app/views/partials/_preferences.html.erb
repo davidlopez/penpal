@@ -1,0 +1,70 @@
+<center>
+  <%= form_tag path, method: method do %>
+    <h5>I often feel: </h5>
+    <%= label_tag "feelings[sad]", "Sad" %>
+    <%= check_box_tag "feelings[sad]", "sad" %>
+    <%= label_tag "feelings[down]", "Down" %>
+    <%= check_box_tag "feelings[down]", "down" %>
+    <%= label_tag "feelings[alone]", "Alone" %>
+    <%= check_box_tag "feelings[alone]", "alone" %>
+    <%= label_tag "feelings[unmotivated]", "Unmotivated" %>
+    <%= check_box_tag "feelings[unmotivated]", "unmotivated" %>
+    <%= label_tag "feelings[mad]", "Mad" %>
+    <%= check_box_tag "feelings[mad]", "mad" %>
+
+    <h5>I notice that I feel this way more often: </h5>
+    <%= label_tag "time[morning]", "In the morning" %>
+    <%= check_box_tag "time[morning]", "morning" %>
+    <%= label_tag "time[mid-day]", "Mid-day" %>
+    <%= check_box_tag "time[mid-day]", "midday" %>
+    <%= label_tag "time[before-bed]", "Before bed" %>
+    <%= check_box_tag "time[before-bed]", "before_bed" %>
+    <%= label_tag "time[random]", "Random times" %>
+    <%= check_box_tag "time[random]", "random" %>
+
+    <h5>When I feel this way, it can be helpful to: </h5>
+    <%= label_tag "resources[music]", "Listen to my favorite music" %>
+    <%= check_box_tag "resources[music]", "music" %>
+    <%= label_tag "resources[activity]", "Perform an activity I enjoy" %>
+    <%= check_box_tag "resources[activity]", "activity" %>
+    <%= label_tag "resources[buddy]", "Talk to a friend or family member" %>
+    <%= check_box_tag "resources[buddy]", "buddy" %>
+    <%= label_tag "resources[media]", "View cute animal pictures" %>
+    <%= check_box_tag "resources[media]", "media" %>
+    <%= label_tag "resources[journal]", "Journal" %>
+    <%= check_box_tag "resources[journal]", "journal" %>
+
+    <h5>My favorite music genre is: </h5>
+    <%= label_tag "music[rock]", "Rock" %>
+    <%= check_box_tag "music[rock]", "rock" %>
+    <%= label_tag "music[r&b-soul]", "R&B/Soul" %>
+    <%= check_box_tag "music[r&b-soul]", "rnbsoul" %>
+    <%= label_tag "music[folk/indie]", "Folk/Indie" %>
+    <%= check_box_tag "music[folk/indie]", "folkindie" %>
+    <%= label_tag "music[custom]", "Other" %>
+    <%= text_field_tag "music[custom]" %>
+    <%= text_field_tag "music[custom_2]" %>
+
+    <h5>I love looking at these types of images: </h5>
+    <%= label_tag "media[dogs]", "Dogs" %>
+    <%= check_box_tag "media[dogs]", "dogs" %>
+    <%= label_tag "media[cats]", "Cats" %>
+    <%= check_box_tag "media[cats]", "cats" %>
+    <%= label_tag "media[animals]", "All animals" %>
+    <%= check_box_tag "media[animals]", "animals" %>
+    <%= label_tag "media[babies]", "Baby humans" %>
+    <%= check_box_tag "media[babies]", "babies" %>
+    <%= label_tag "media[landscapes]", "Landscapes" %>
+    <%= check_box_tag "media[landscapes]", "landscapes" %>
+    <%= label_tag "media[celestial]", "Celestial" %>
+    <%= check_box_tag "media[celestial]", "celestial" %>
+
+    <h5>Please fill in the following with activities that you enjoy doing: </h5>
+    <%= label_tag "activities" %>
+    <%= text_area_tag "activity[activity_1]" %>
+    <%= text_area_tag "activity[activity_2]" %>
+    <%= text_area_tag "activity[activity_3]" %>
+
+    <%= submit_tag button %>
+  <% end %>
+</center>

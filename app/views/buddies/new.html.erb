@@ -1,0 +1,10 @@
+<%= render partial: 'partials/nav' %>
+
+<center>
+  <section>
+    <h3>Add a Buddy</h3>
+    <h6>Add a friend that you benefit from talking to when you're feeling down.</h6>
+    <p>Penpal will notify your friend that you may reach out in a time of need.</p>
+    <%= render partial: 'partials/buddy_crud', locals: { buddy: @buddy, path: '/buddies', method: :post, button: 'Add Buddy'} %>
+  </section>
+</center>

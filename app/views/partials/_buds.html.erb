@@ -1,0 +1,4 @@
+<section id='buddy'>
+  <p id='name'>Send a text to or call <%= resource_facade.resource.first_name + ' ' + resource_facade.resource.last_name %>
+  <p id='number'>at <%= number_to_phone(resource_facade.resource.phone_number) %></p>
+</section>

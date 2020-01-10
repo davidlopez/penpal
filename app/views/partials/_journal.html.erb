@@ -1,0 +1,12 @@
+<p>Journal about whatever comes up for you, then click save.</p>
+<section id='journal-entry'>
+
+  <%= form_for resource_facade.new_entry, url: '/journal_entries?resource=true' do |f| %>
+    <p>
+      <%= f.text_area(:entry, size: '100x20') %>
+    </p>
+    <p>
+      <%= f.submit 'Save', method: :post %>
+    </p>
+  <% end %>
+</section>
