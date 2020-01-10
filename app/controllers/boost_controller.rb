@@ -11,7 +11,7 @@ class BoostController < ApplicationController
       if current_user.spotify_token == nil && current_user.resource_preference[:music] == true
         flash[:error] = 'Please sign-in to a spotify premium account to get a song suggestion'
         redirect_to '/landing'
-      elsif 'buddy' && current_user.buddies.empty? == current_user.resource_preference[:buddy] == true
+      elsif 'buddy' && current_user.buddies.empty? && current_user.resource_preference[:buddy] == true
         flash[:error] = 'Pleaese add a buddy to get a buddy suggestion'
         redirect_to '/buddies/new'
       else
