@@ -5,7 +5,7 @@ describe "user can receive a journal entry resource" do
     user = create(:user, survey?: true)
     stub_user(user)
     journal = Journal.new(nil,user)
-
+    ResourcePreference.create(user_id: user.id, journal: true)
     allow_any_instance_of(ResourceFacade).to receive(:suggestion).and_return("journal")
     allow_any_instance_of(ResourceFacade).to receive(:get_resource).and_return(journal)
     allow_any_instance_of(ResourceFacade).to receive(:resource).and_return(journal)
